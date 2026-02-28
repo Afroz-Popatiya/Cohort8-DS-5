@@ -30,7 +30,10 @@ Overall, the project seeks to transform historical rental and weather data into 
 
 ### Project Question
 
-**Regression:** Can we predict the number of bike rentals at different stations based on various factors such as time of day, day of the week, weather conditions, and local events?
+**Regression:** 
+
+Can we predict the number of bike rentals for a giving hour based on various factors such as time of day, day of the week, weather conditions, and calendar(holiday, workinday)?
+
 
 ### Dataset Overview
 This dataset contains the hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information.
