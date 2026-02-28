@@ -1,1 +1,6 @@
-
+c8ds5-project-env/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.md
+.ipynb_checkpoints/
