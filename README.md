@@ -4,9 +4,7 @@
 ### Project Objective
 
 The objective of this project is to develop predictive models that accurately forecast and categorize bike rental demand using historical data from the Capital Bikeshare system (2011–2012).
-Our Data Science team will develop two machine learning models, by applying regression techniques, we aim to predict the number of bike rentals at specific times based on variables such as time of day, day of the week, weather conditions, and seasonal patterns.
-
-Second, we will build a classification model to label each hour or day as high, medium, or low demand. This categorization will provide actionable insights that enable operators to proactively position bikes, optimize inventory distribution, and improve operational efficiency.
+Our Data Science team will develop a regression model, we aim to predict the number of bike rentals at specific times based on variables such as time of day, day of the week, weather conditions, and seasonal patterns.
 
 To communicate insights clearly, we will design three visualizations that highlight demand trends, key drivers, and model performance. Together, these tools aim to improve decision-making, optimize bike distribution, and enhance system efficiency.
 
@@ -33,8 +31,6 @@ Overall, the project seeks to transform historical rental and weather data into 
 ### Project Question
 
 **Regression:** Can we predict the number of bike rentals at different stations based on various factors such as time of day, day of the week, weather conditions, and local events?
-
-**Classification:** Can we classify a given hour or day as high, medium, or low demand based on weather conditions, time of day, and day type so operators can pre-position bikes in advance?
 
 ### Dataset Overview
 This dataset contains the hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information.
