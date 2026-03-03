@@ -19,7 +19,7 @@
 
 3. **Install all dependencies from `pyproject.toml`:**
 ```bash
-   uv sync
+   uv sync --active
 ```
 
 ## Using Your Environment
