@@ -59,7 +59,7 @@ This analysis can help these stakeholders understand bike usage patterns and mak
 
 ## Risks and Unknowns for the Bike Sharing Demand Prediction Project 
 
-1. ##Data Quality and Relevance Risks
+1. ## Data Quality and Relevance Risks
 Risk: Data is Not Representative of the Current Operating Environment.
 
 Description: The dataset covers 2011-2012. Bike-sharing usage patterns, urban infrastructure, weather patterns, and user behavior (e.g., impact of dockless bikes, scooters, COVID-19) have likely changed significantly. A model trained on this historical data may not accurately predict demand in a future or even current context.
