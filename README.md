@@ -22,7 +22,6 @@ Overall, the project seeks to transform historical rental and weather data into 
 * Andres Rojas
 * Hajar Elidrissi
 * Jorge Bustamante
-* Michael Nweke
 * Nuria Stephanie Sanchez Perez
 
 
@@ -56,6 +55,32 @@ The intended audience for this project includes:
 * Business analysts and operations planners
 
 This analysis can help these stakeholders understand bike usage patterns and make informed decisions about fleet management, infrastructure planning, and service optimization.
+
+### Risks/Unknowns
+>-- potential issues
+>data quality
+>features limitations
+>seasonality changes
+>external factors
+>how this risk will be mitigated.
+
+# Analytical Plan
+>steps which regretion, how models will be outaweighted.
+>the rule for our proposal
+>task breakdown
+
+# Task Breakdown
+|  Task | Responsible | 
+|---|---|
+| Data Extract and Exploration | Jorge Bustamante	|
+| Data cleansing | Jorge Bustamante	|
+| Model Development: Linear Regression | Hajar Elidrissi |
+| Model Development: Random Forest | Andres Rojas | 
+| Visualizations | Afroz Popatiya & Nuria Stephanie Sanchez Perez | 
+
+
+# Business comebacks
+>State why bike sharing is important. how those results should be used.
 
 
 
