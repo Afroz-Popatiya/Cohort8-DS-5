@@ -100,7 +100,7 @@ Proxy Variables: Explore creating proxy variables. For example, a sudden, large 
 
 Scope Definition: Clearly define that the model predicts baseline demand based on routine patterns (weather, time) and explicitly state that it does not account for special events, which would require additional data sources. 
 
-2. Modeling and Methodological Risks
+2. # Modeling and Methodological Risks
 Risk: Overfitting to Seasonal and Weather Patterns of 2011-2012.
 
 Description: The model might learn patterns specific to the weather and seasonal transitions of those two years. For instance, if 2012 had an unusually warm spring, the model might incorrectly associate that specific temperature range with high demand, failing to predict demand for a typical, cooler spring.
@@ -121,7 +121,7 @@ Feature Engineering with Domain Knowledge: Create features that capture the reas
 
 Modular Design: Frame the solution as a system where the model is one component. In a real-world application, this model would be part of a larger MLOps pipeline that continuously monitors prediction error and triggers retraining when significant drift is detected. 
 
-3. External Factors and Unknowns
+3. # External Factors and Unknowns
 Risk: Unforeseen External Shocks.
 
 Description: Major events like a pandemic (COVID-19), economic downturns, sudden policy changes (e.g., free public transport days), or extreme weather events (e.g., a hurricane) are not represented in the training data. The model's predictions would be completely invalid under such conditions.
