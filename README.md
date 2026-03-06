@@ -57,7 +57,7 @@ The intended audience for this project includes:
 This analysis can help these stakeholders understand bike usage patterns and make informed decisions about fleet management, infrastructure planning, and service optimization.
 
 ### Analytical Plan
->steps which regretion, how models will be outaweighted.
+>steps for regression, how models will be out-weighted.
 >the rule for our proposal
 >task breakdown
 
@@ -72,89 +72,87 @@ This analysis can help these stakeholders understand bike usage patterns and mak
 
 
 ### Business comebacks
->State why bike sharing is important. how those results should be used.
+>State why bike sharing is important. How those results should be used.
 
-## Risks and Unknowns for the Bike Sharing Demand Prediction Project 
+### Risks and Unknowns for the Bike Sharing Demand Prediction Project 
 
-1. # Data Quality and Relevance Risks
-Risk: Data is Not Representative of the Current Operating Environment.
+**1. Data Quality and Relevance Risks**
 
-Description: The dataset covers 2011-2012. Bike-sharing usage patterns, urban infrastructure, weather patterns, and user behavior (e.g., impact of dockless bikes, scooters, COVID-19) have likely changed significantly. A model trained on this historical data may not accurately predict demand in a future or even current context.
+**Risk:** <br>
+Data is not representative of the current operating environment.
 
-Mitigation:
+**Description:**<br>
+The dataset covers 2011-2012. Bike-sharing usage patterns, urban infrastructure, weather patterns, and user behavior (e.g., impact of dockless bikes, scooters, and COVID-19) have likely changed significantly. A model trained on this historical data may not accurately predict demand in a future or even current context.
 
-Acknowledge the Limitation: Explicitly state in the final presentation and report that the model is a proof-of-concept based on historical data (2011-2012) and is not intended for direct deployment without retraining on contemporary data.
+**Mitigation:**<br>
+Acknowledge the Limitation, explicitly state in the final presentation and report that the model is a proof-of-concept based on historical data (2011-2012) and is not intended for direct deployment without retraining on contemporary data.
 
-External Data Comparison: Where possible, compare broad trends from 2011-2012 with publicly available reports on current bike-sharing trends to qualitatively discuss how patterns may have shifted.
 
-Focus on Methodology: Frame the project's value in the process—the feature engineering, model selection, and evaluation pipeline—which can be readily applied to a modern dataset.
 
-Risk: The Dataset Has No Missing Values, but May Contain Measurement Errors or Biases.
+**Risk:** <br>
+The dataset has no missing values, but may contain measurement errors or biases.
 
-Description: While the UCI dataset is clean, the source data may have inherent biases. For example, weather data from a single airport station may not accurately represent micro-climates across the city. The classification of "holiday" may not perfectly align with all user segments' behavior.
+**Description:** <br>
+While the UCI dataset is clean, the source data may have inherent biases. For example, weather data from a single airport station may not accurately represent micro-climates across the city. The classification of "holiday" may not perfectly align with all user segments' behavior.
 
-Mitigation:
+**Mitigation:** <br>
+During exploration, test the model's sensitivity to key variables. For instance, does a slight variation in reported temperature (±1-2°C) lead to a large swing in predictions? This can highlight over-reliance on a potentially noisy feature.
+Create robust features. For example, instead of relying solely on the binary holiday variable, we could create a feature that combines holidays with the day of the week to better capture long-weekend effects.
 
-Sensitivity Analysis: During exploration, test the model's sensitivity to key variables. For instance, does a slight variation in reported temperature (±1-2°C) lead to a large swing in predictions? This can highlight over-reliance on a potentially noisy feature.
+**Risk:** <br>
+Feature limitations & lack of contextual data.
 
-Feature Engineering: Create robust features. For example, instead of relying solely on the binary holiday variable, we could create a feature that combines holidays with the day of the week to better capture long-weekend effects.
+**Description:** <br>
+The dataset lacks crucial information that likely drives demand, such as:
+* Special Events: Concerts, festivals, sports games, or political rallies.
+* Infrastructure Changes: New bike lanes, station closures, or the introduction of competing services (e.g., e-scooters).
+* Real-time Data: Current bike availability at stations, which heavily influences a user's decision to rent.
 
-Risk: Feature Limitations & Lack of Contextual Data.
-
-Description: The dataset lacks crucial information that likely drives demand, such as:
-
-Special Events: Concerts, festivals, sports games, or political rallies.
-
-Infrastructure Changes: New bike lanes, station closures, or the introduction of competing services (e.g., e-scooters).
-
-Real-time Data: Current bike availability at stations, which heavily influences a user's decision to rent.
-
-Mitigation:
-
-Error Analysis: Systematically analyze the model's largest prediction errors. If errors cluster on specific dates, we can retrospectively research if a special event occurred, providing a qualitative explanation for the model's failure.
-
-Proxy Variables: Explore creating proxy variables. For example, a sudden, large anomaly in rentals on a non-holiday weekday might be cross-referenced with a major event calendar (if we can find one online for 2011-2012) during the error analysis phase.
-
+**Mitigation:** <br>
+Error Analysis: Systematically analyze the model's largest prediction errors. If errors cluster on specific dates, we can retrospectively research if a special event occurred, providing a qualitative explanation for the model's failure.<br>
+Proxy Variables: Explore creating proxy variables. For example, a sudden, large anomaly in rentals on a non-holiday weekday might be cross-referenced with a major event calendar (if we can find one online for 2011-2012) during the error analysis phase.<br>
 Scope Definition: Clearly define that the model predicts baseline demand based on routine patterns (weather, time) and explicitly state that it does not account for special events, which would require additional data sources. 
 
-2. # Modeling and Methodological Risks
-Risk: Overfitting to Seasonal and Weather Patterns of 2011-2012.
+**2. Modeling and Methodological Risks**
 
-Description: The model might learn patterns specific to the weather and seasonal transitions of those two years. For instance, if 2012 had an unusually warm spring, the model might incorrectly associate that specific temperature range with high demand, failing to predict demand for a typical, cooler spring.
+**Risk:** <br>
+Overfitting to Seasonal and Weather Patterns of 2011-2012.
 
-Mitigation:
+**Description:** <br>
+The model might learn patterns specific to the weather and seasonal transitions of those two years. For instance, if 2012 had an unusually warm spring, the model might incorrectly associate that specific temperature range with high demand, failing to predict demand for a typical, cooler spring.
 
-Simpler, Robust Models: Prioritize models like regularized linear regression (Ridge, Lasso) or tree-based methods with limited depth (e.g., Gradient Boosting with careful tuning) that are less prone to overfitting than very complex, unregularized models.
-
+**Mitigation:** <br>
+Simpler, Robust Models: Prioritize models like regularized linear regression (Ridge, Lasso) or tree-based methods with limited depth (e.g., Gradient Boosting with careful tuning) that are less prone to overfitting than very complex, unregularized models.<br>
 Cross-Validation: Use time-series cross-validation (e.g., expanding window or sliding window) instead of random k-fold cross-validation. This ensures the model is always trained on past data and validated on future data, simulating a real-world forecasting scenario and testing its ability to generalize to new time periods.
 
-Risk: Seasonality Changes and Shifts in User Behavior.
+**Risk:** <br>
+Seasonality Changes and Shifts in User Behavior.
 
-Description: The fundamental patterns might shift (concept drift). For example, the morning commute peak in 2011 might have been at 8:00 AM, but cultural shifts could move it to 9:00 AM. The model would be blind to this.
+**Description:** <br>
+The fundamental patterns might shift (concept drift). For example, the morning commute peak in 2011 might have been at 8:00 AM, but cultural shifts could move it to 9:00 AM. The model would be blind to this.
 
-Mitigation:
-
-Feature Engineering with Domain Knowledge: Create features that capture the reason for the pattern, not just the pattern itself. For example, an is_commute_hour feature (based on typical 8-9 AM and 5-6 PM slots) encodes domain knowledge. Even if the peak shifts slightly, this binary feature remains relevant.
-
+**Mitigation:** <br>
+Feature Engineering with Domain Knowledge: Create features that capture the reason for the pattern, not just the pattern itself. For example, an is_commute_hour feature (based on typical 8-9 AM and 5-6 PM slots) encodes domain knowledge. Even if the peak shifts slightly, this binary feature remains relevant.<br>
 Modular Design: Frame the solution as a system where the model is one component. In a real-world application, this model would be part of a larger MLOps pipeline that continuously monitors prediction error and triggers retraining when significant drift is detected. 
 
-3. # External Factors and Unknowns
-Risk: Unforeseen External Shocks.
+**3. External Factors and Unknowns**
+**Risk:** <br>
+Unforeseen external shocks.
 
-Description: Major events like a pandemic (COVID-19), economic downturns, sudden policy changes (e.g., free public transport days), or extreme weather events (e.g., a hurricane) are not represented in the training data. The model's predictions would be completely invalid under such conditions.
+**Description:** <br>
+Major events like a pandemic (COVID-19), economic downturns, sudden policy changes (e.g., free public transport days), or extreme weather events (e.g., a hurricane) are not represented in the training data. The model's predictions would be completely invalid under such conditions.
 
-Mitigation:
-
+**Mitigation:** <br>
 Model Limitations as a Feature: This is a fundamental unknown that cannot be fully mitigated. The best approach is to be transparent. The final report will include a section on "Model Limitations" that explicitly states the model assumes a stable operating environment and is not designed to predict demand during unprecedented external shocks. This sets appropriate expectations for stakeholders.
 
-Risk: The "Unknown Unknowns".
+**Risk:** <br>
+The "Unknown Unknowns".
 
-Description: There may be critical factors influencing bike demand that we, as a team, haven't even considered. This could be anything from the rise of ride-sharing apps to changes in DC's tourism demographics.
+**Description:** <br>
+There may be critical factors influencing bike demand that we, as a team, haven't even considered. This could be anything from the rise of ride-sharing apps to changes in DC's tourism demographics.
 
-Mitigation:
-
-Thorough Exploratory Data Analysis (EDA): A deep and curious EDA process is the first line of defense. By visualizing data from multiple angles, we might uncover unexpected patterns that prompt new questions and hypotheses about hidden drivers.
-
+**Mitigation:** <br>
+Thorough Exploratory Data Analysis (EDA): A deep and curious EDA process is the first line of defense. By visualizing data from multiple angles, we might uncover unexpected patterns that prompt new questions and hypotheses about hidden drivers.<br>
 Peer Review and Stakeholder Feedback: During the project, we will present our findings and assumptions to our cohort and instructors. External perspectives can challenge our thinking and point out factors we may have missed. In a real-world scenario, presenting to a domain expert (e.g., a Capital Bikeshare operations manager) would be critical for uncovering these blind spots.
 
 ### Key Variables and Attributes 
