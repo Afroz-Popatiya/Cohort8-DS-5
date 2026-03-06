@@ -3,24 +3,24 @@
 ## Creating Your Environment
 
 1. **Create a virtual environment called `c8ds5-project-env`:**
-```bash
+   ```bash
    uv venv c8ds5-project-env --python 3.11
-```
+   ```
 
 2. **Activate the environment:**
    - macOS/Linux:
-```bash
-     source c8ds5-project-env/bin/activate
-```
+      ```bash
+      source c8ds5-project-env/bin/activate
+      ```
    - Windows (Git Bash):
-```bash
-     source c8ds5-project-env/Scripts/activate
-```
+      ```bash
+      source c8ds5-project-env/Scripts/activate
+      ```
 
 3. **Install all dependencies from `pyproject.toml`:**
-```bash
+   ```bash
    uv sync --active
-```
+   ```
 
 ## Using Your Environment
 
