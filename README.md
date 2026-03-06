@@ -1,6 +1,23 @@
 # DSI Cohort 8 Team Project - DS Team 05 - Topic: Infrastructure and Transportation <br>
 ## Bike Sharing Trends
 
+*   [Project Objective](#project-objective)
+    - [Members](#members)
+    - [Team Reflection Videos](#team-reflection-videos)
+*   [Project Question](#project-question)
+*   [Dataset Overview](#dataset-overview)
+*   [Intended Audience](#intended-audience)
+*   [Task Breakdown](#task-breakdown)
+*   [Business Context](#business-context)
+*   [Risks and Unknowns](#risks-and-unknowns)
+*   [Key Variables and Attributes](#key-variables-and-attributes)
+*   [Data Cleaning Strategy](#data-cleaning-strategy)
+*   [Exploring Relationships Between Variables](#exploring-relationships-between-variables)
+*   [Patterns and Trends in the Data](#patterns-and-trends-in-the-data)
+*   [Suitable Libraries and Tools](#suitable-libraries-and-tools)
+
+
+
 ### Project Objective
 
 The objective of this project is to develop predictive models that accurately forecast and categorize bike rental demand using historical data from the Capital Bikeshare system (2011–2012).
@@ -23,6 +40,14 @@ Overall, the project seeks to transform historical rental and weather data into 
 * Hajar Elidrissi
 * Jorge Bustamante
 * Nuria Stephanie Sanchez Perez
+
+
+### Team Reflection Videos
+* Afroz Popatiya
+* Andres Rojas
+* Hajar Elidrissi
+* Jorge Bustamante
+* [Nuria Stephanie Sanchez Perez](https://drive.google.com/file/d/1kzDW8TRP1xhY-_w0246PbUCEgo0rUL7Y/view?usp=drive_link)
 
 
 ***
@@ -79,7 +104,7 @@ data preprocessing → EDA → baseline regression models → Random Forest mode
 | Visualizations | Afroz Popatiya & Nuria Stephanie Sanchez Perez | 
 
 
-### Business Context:
+### Business Context
 
 Accurately predicting bike-sharing demand is important for both bike-sharing companies and urban planners. For bike-sharing operators, demand forecasting can help optimize bike availability, fleet distribution, and station management, ensuring that bikes are available where and when users need them. This can improve customer satisfaction and operational efficiency.
 
@@ -87,7 +112,7 @@ For urban planners, understanding patterns in bike usage can support transportat
 
 Overall, predictive models of bike rental demand can support data-driven decision-making that improves urban mobility and promotes more efficient and sustainable transportation systems.
 
-### Risks and Unknowns for the Bike Sharing Demand Prediction Project 
+### Risks and Unknowns
 
 **1. Data Quality and Relevance Risks**
 
