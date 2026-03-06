@@ -57,9 +57,17 @@ The intended audience for this project includes:
 This analysis can help these stakeholders understand bike usage patterns and make informed decisions about fleet management, infrastructure planning, and service optimization.
 
 ### Analytical Plan
->steps for regression, how models will be out-weighted.
->the rule for our proposal
->task breakdown
+
+This project will aim to predict hourly bike rental demand using historical bike-sharing data and weather-related variables. Since the target variable (cnt) is continuous, the problem will be treated as a regression task.
+
+The analysis will begin with exploratory data analysis (EDA) to understand the dataset, check for missing values, and explore patterns in rental demand across time and weather variables such as hour, season, temperature, humidity, and working day.
+
+Next, several regression models will be tested. Linear Regression (OLS) and Ridge Regression will serve as baseline models to evaluate whether linear relationships between features and rental demand provide reasonable predictive performance. A Random Forest Regressor will also be implemented to capture potential nonlinear relationships and interactions between variables.
+
+Model performance will be evaluated using RMSE, MAE, and R² on a held-out test set. The model with the best predictive performance will be selected for final predictions and visualization of rental demand.
+
+The planned workflow will follow these steps:
+data preprocessing → EDA → baseline regression models → Random Forest modeling → model evaluation → final prediction and visualizations.
 
 ### Task Breakdown
 |  Task | Responsible | 
@@ -71,8 +79,13 @@ This analysis can help these stakeholders understand bike usage patterns and mak
 | Visualizations | Afroz Popatiya & Nuria Stephanie Sanchez Perez | 
 
 
-### Business comebacks
->State why bike sharing is important. How those results should be used.
+### Business Context:
+
+Accurately predicting bike-sharing demand is important for both bike-sharing companies and urban planners. For bike-sharing operators, demand forecasting can help optimize bike availability, fleet distribution, and station management, ensuring that bikes are available where and when users need them. This can improve customer satisfaction and operational efficiency.
+
+For urban planners, understanding patterns in bike usage can support transportation planning, infrastructure development, and sustainable mobility initiatives. Insights from demand prediction can help identify peak usage periods, high-demand areas, and the influence of weather or seasonal factors on ridership. These insights can inform decisions related to bike lane expansion, station placement, and integration with other public transportation systems.
+
+Overall, predictive models of bike rental demand can support data-driven decision-making that improves urban mobility and promotes more efficient and sustainable transportation systems.
 
 ### Risks and Unknowns for the Bike Sharing Demand Prediction Project 
 
