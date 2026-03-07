@@ -123,7 +123,7 @@ Data is not representative of the current operating environment.
 The dataset covers 2011-2012. Bike-sharing usage patterns, urban infrastructure, weather patterns, and user behavior (e.g., impact of dockless bikes, scooters, and COVID-19) have likely changed significantly. A model trained on this historical data may not accurately predict demand in a future or even current context.
 
 **Mitigation:**<br>
-Acknowledge the Limitation, explicitly state in the final presentation and report that the model is a proof-of-concept based on historical data (2011-2012) and is not intended for direct deployment without retraining on contemporary data.
+We acknowledge the limitations this model presents, and will use it as a precursor to inspire future models with new data.
 
 
 
