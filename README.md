@@ -1,6 +1,23 @@
 # DSI Cohort 8 Team Project - DS Team 05 - Topic: Infrastructure and Transportation <br>
 ## Bike Sharing Trends
 
+*   [Project Objective](#project-objective)
+    - [Members](#members)
+    - [Team Reflection Videos](#team-reflection-videos)
+*   [Project Question](#project-question)
+*   [Dataset Overview](#dataset-overview)
+*   [Intended Audience](#intended-audience)
+*   [Task Breakdown](#task-breakdown)
+*   [Business Context](#business-context)
+*   [Risks and Unknowns](#risks-and-unknowns)
+*   [Key Variables and Attributes](#key-variables-and-attributes)
+*   [Data Cleaning Strategy](#data-cleaning-strategy)
+*   [Exploring Relationships Between Variables](#exploring-relationships-between-variables)
+*   [Patterns and Trends in the Data](#patterns-and-trends-in-the-data)
+*   [Suitable Libraries and Tools](#suitable-libraries-and-tools)
+
+
+
 ### Project Objective
 
 The objective of this project is to develop predictive models that accurately forecast and categorize bike rental demand using historical data from the Capital Bikeshare system (2011–2012).
@@ -23,6 +40,14 @@ Overall, the project seeks to transform historical rental and weather data into 
 * Hajar Elidrissi
 * Jorge Bustamante
 * Nuria Stephanie Sanchez Perez
+
+
+### Team Reflection Videos
+* Afroz Popatiya
+* Andres Rojas
+* Hajar Elidrissi
+* Jorge Bustamante
+* [Nuria Stephanie Sanchez Perez](https://drive.google.com/file/d/1kzDW8TRP1xhY-_w0246PbUCEgo0rUL7Y/view?usp=drive_link)
 
 
 ***
@@ -57,9 +82,17 @@ The intended audience for this project includes:
 This analysis can help these stakeholders understand bike usage patterns and make informed decisions about fleet management, infrastructure planning, and service optimization.
 
 ### Analytical Plan
->steps for regression, how models will be out-weighted.
->the rule for our proposal
->task breakdown
+
+This project will aim to predict hourly bike rental demand using historical bike-sharing data and weather-related variables. Since the target variable (cnt) is continuous, the problem will be treated as a regression task.
+
+The analysis will begin with exploratory data analysis (EDA) to understand the dataset, check for missing values, and explore patterns in rental demand across time and weather variables such as hour, season, temperature, humidity, and working day.
+
+Next, several regression models will be tested. Linear Regression (OLS) and Ridge Regression will serve as baseline models to evaluate whether linear relationships between features and rental demand provide reasonable predictive performance. A Random Forest Regressor will also be implemented to capture potential nonlinear relationships and interactions between variables.
+
+Model performance will be evaluated using RMSE, MAE, and R² on a held-out test set. The model with the best predictive performance will be selected for final predictions and visualization of rental demand.
+
+The planned workflow will follow these steps:
+data preprocessing → EDA → baseline regression models → Random Forest modeling → model evaluation → final prediction and visualizations.
 
 ### Task Breakdown
 |  Task | Responsible | 
@@ -71,89 +104,26 @@ This analysis can help these stakeholders understand bike usage patterns and mak
 | Visualizations | Afroz Popatiya & Nuria Stephanie Sanchez Perez | 
 
 
-### Business comebacks
->State why bike sharing is important. How those results should be used.
+### Business Context
 
-### Risks and Unknowns for the Bike Sharing Demand Prediction Project 
+Accurately predicting bike-sharing demand is important for both bike-sharing companies and urban planners. For bike-sharing operators, demand forecasting can help optimize bike availability, fleet distribution, and station management, ensuring that bikes are available where and when users need them. This can improve customer satisfaction and operational efficiency.
 
-**1. Data Quality and Relevance Risks**
+For urban planners, understanding patterns in bike usage can support transportation planning, infrastructure development, and sustainable mobility initiatives. Insights from demand prediction can help identify peak usage periods, high-demand areas, and the influence of weather or seasonal factors on ridership. These insights can inform decisions related to bike lane expansion, station placement, and integration with other public transportation systems.
 
-**Risk:** <br>
-Data is not representative of the current operating environment.
+Overall, predictive models of bike rental demand can support data-driven decision-making that improves urban mobility and promotes more efficient and sustainable transportation systems.
 
-**Description:**<br>
-The dataset covers 2011-2012. Bike-sharing usage patterns, urban infrastructure, weather patterns, and user behavior (e.g., impact of dockless bikes, scooters, and COVID-19) have likely changed significantly. A model trained on this historical data may not accurately predict demand in a future or even current context.
+### Risks and Unknowns
+
+Several factors in the dataset could affect model performance. For example, weather variables such as temperature, humidity, and windspeed may contain noise or measurement errors that could influence predictions. In addition, the dataset does not include external factors such as public events, additional local holidays, or changes in bike infrastructure, which may also affect rental demand.
+
+Some variables are also simplified indicators. For instance, workingday only distinguishes working days from weekends or holidays, but it does not capture variations such as school schedules or special events. Similarly, the weathersit variable groups weather conditions into broad categories, which may hide more detailed weather effects.
+
+The dataset only covers 2011–2012, so it may not reflect more recent changes in bike-sharing usage, infrastructure, or commuting behavior. As a result, the model may capture historical demand patterns that differ from current usage trends.
 
 **Mitigation:**<br>
-Acknowledge the Limitation, explicitly state in the final presentation and report that the model is a proof-of-concept based on historical data (2011-2012) and is not intended for direct deployment without retraining on contemporary data.
+We acknowledge the limitations this model presents, and will use it as a precursor to inspire future models with new data.
 
-
-
-**Risk:** <br>
-The dataset has no missing values, but may contain measurement errors or biases.
-
-**Description:** <br>
-While the UCI dataset is clean, the source data may have inherent biases. For example, weather data from a single airport station may not accurately represent micro-climates across the city. The classification of "holiday" may not perfectly align with all user segments' behavior.
-
-**Mitigation:** <br>
-During exploration, test the model's sensitivity to key variables. For instance, does a slight variation in reported temperature (±1-2°C) lead to a large swing in predictions? This can highlight over-reliance on a potentially noisy feature.
-Create robust features. For example, instead of relying solely on the binary holiday variable, we could create a feature that combines holidays with the day of the week to better capture long-weekend effects.
-
-**Risk:** <br>
-Feature limitations & lack of contextual data.
-
-**Description:** <br>
-The dataset lacks crucial information that likely drives demand, such as:
-* Special Events: Concerts, festivals, sports games, or political rallies.
-* Infrastructure Changes: New bike lanes, station closures, or the introduction of competing services (e.g., e-scooters).
-* Real-time Data: Current bike availability at stations, which heavily influences a user's decision to rent.
-
-**Mitigation:** <br>
-Error Analysis: Systematically analyze the model's largest prediction errors. If errors cluster on specific dates, we can retrospectively research if a special event occurred, providing a qualitative explanation for the model's failure.<br>
-Proxy Variables: Explore creating proxy variables. For example, a sudden, large anomaly in rentals on a non-holiday weekday might be cross-referenced with a major event calendar (if we can find one online for 2011-2012) during the error analysis phase.<br>
-Scope Definition: Clearly define that the model predicts baseline demand based on routine patterns (weather, time) and explicitly state that it does not account for special events, which would require additional data sources. 
-
-**2. Modeling and Methodological Risks**
-
-**Risk:** <br>
-Overfitting to Seasonal and Weather Patterns of 2011-2012.
-
-**Description:** <br>
-The model might learn patterns specific to the weather and seasonal transitions of those two years. For instance, if 2012 had an unusually warm spring, the model might incorrectly associate that specific temperature range with high demand, failing to predict demand for a typical, cooler spring.
-
-**Mitigation:** <br>
-Simpler, Robust Models: Prioritize models like regularized linear regression (Ridge, Lasso) or tree-based methods with limited depth (e.g., Gradient Boosting with careful tuning) that are less prone to overfitting than very complex, unregularized models.<br>
-Cross-Validation: Use time-series cross-validation (e.g., expanding window or sliding window) instead of random k-fold cross-validation. This ensures the model is always trained on past data and validated on future data, simulating a real-world forecasting scenario and testing its ability to generalize to new time periods.
-
-**Risk:** <br>
-Seasonality Changes and Shifts in User Behavior.
-
-**Description:** <br>
-The fundamental patterns might shift (concept drift). For example, the morning commute peak in 2011 might have been at 8:00 AM, but cultural shifts could move it to 9:00 AM. The model would be blind to this.
-
-**Mitigation:** <br>
-Feature Engineering with Domain Knowledge: Create features that capture the reason for the pattern, not just the pattern itself. For example, an is_commute_hour feature (based on typical 8-9 AM and 5-6 PM slots) encodes domain knowledge. Even if the peak shifts slightly, this binary feature remains relevant.<br>
-Modular Design: Frame the solution as a system where the model is one component. In a real-world application, this model would be part of a larger MLOps pipeline that continuously monitors prediction error and triggers retraining when significant drift is detected. 
-
-**3. External Factors and Unknowns**
-**Risk:** <br>
-Unforeseen external shocks.
-
-**Description:** <br>
-Major events like a pandemic (COVID-19), economic downturns, sudden policy changes (e.g., free public transport days), or extreme weather events (e.g., a hurricane) are not represented in the training data. The model's predictions would be completely invalid under such conditions.
-
-**Mitigation:** <br>
-Model Limitations as a Feature: This is a fundamental unknown that cannot be fully mitigated. The best approach is to be transparent. The final report will include a section on "Model Limitations" that explicitly states the model assumes a stable operating environment and is not designed to predict demand during unprecedented external shocks. This sets appropriate expectations for stakeholders.
-
-**Risk:** <br>
-The "Unknown Unknowns".
-
-**Description:** <br>
-There may be critical factors influencing bike demand that we, as a team, haven't even considered. This could be anything from the rise of ride-sharing apps to changes in DC's tourism demographics.
-
-**Mitigation:** <br>
-Thorough Exploratory Data Analysis (EDA): A deep and curious EDA process is the first line of defense. By visualizing data from multiple angles, we might uncover unexpected patterns that prompt new questions and hypotheses about hidden drivers.<br>
-Peer Review and Stakeholder Feedback: During the project, we will present our findings and assumptions to our cohort and instructors. External perspectives can challenge our thinking and point out factors we may have missed. In a real-world scenario, presenting to a domain expert (e.g., a Capital Bikeshare operations manager) would be critical for uncovering these blind spots.
+To mitigate these risks, the project will include data cleaning and exploratory analysis, testing multiple models to compare performance, and evaluating results using RMSE, MAE, and R² on a held-out test set. This approach helps identify the model that best generalizes within the available data.
 
 ### Key Variables and Attributes 
 
