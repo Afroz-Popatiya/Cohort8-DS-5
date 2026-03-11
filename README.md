@@ -43,11 +43,11 @@ Overall, the project seeks to transform historical rental and weather data into 
 
 
 ### Team Reflection Videos
-* Afroz Popatiya
-* Andres Rojas
-* Hajar Elidrissi
-* Jorge Bustamante
-* [Nuria Stephanie Sanchez Perez](https://drive.google.com/file/d/1kzDW8TRP1xhY-_w0246PbUCEgo0rUL7Y/view?usp=drive_link)
+* [Afroz Popatiya](https://drive.google.com/file/d/11kVmpLGC4ffcmlNsbGGTCZ0nmfrD95Eb/view?usp=sharing)
+* [Andres Rojas](https://1drv.ms/f/c/20021ae7050179f4/IgBZK0rQavnPRIpvx26vrrPWAWO1QbDle80NfkFkCqnxZ7M?e=MJwoLF)
+* [Hajar Elidrissi](https://drive.google.com/file/d/1wLvdGY-3ZVph9SUcEWYlCgYFkjpQbwpW/view?usp=sharing)
+* [Jorge Bustamante](https://drive.google.com/drive/folders/1wNTYQzMBC9XB87g3JjqzjNKpCdumQ-Ht?usp=sharing)
+* [Nuria S Sanchez P](https://drive.google.com/file/d/1IR-b-gRkgn6xREFwpEVDcQeml_2-VhP4/view?usp=sharing)
 
 
 ***
